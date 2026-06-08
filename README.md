@@ -1,5 +1,5 @@
-# Harper + Twilio SMS 
-A [Harper Systems Component](https://docs.harperdb.io/docs/developers/components) for tracking Twilio SMS opt-outs and opt-ins.
+# Harper + Twilio SMS
+A [Harper Component](https://docs.harperdb.io/docs/developers/components) for tracking Twilio SMS opt-outs and opt-ins.
 
 ## Why track SMS Opt-In status?
 Twilio [recommends tracking your customer's SMS opt out status](https://www.twilio.com/en-us/blog/opt-in-opt-out-text-messages) per carrier and country-based legal compliance regulations regarding messaging:
@@ -20,12 +20,12 @@ How to listen for inbound messages with OptOutType & use this component:
 4. Add https://this-applications-url.com/optInStatus to the Request URL
 5. Make sure to leave it as a POST
 6. Save!
-7. Verify this component is working by texting an opt-in or opt-out keyword to a phone number in the service. This will appear in the Harper datatable PhoneNumbers: accessible either in your [Harper Studio UI](https://docs.harperdb.io/docs/administration/harper-studio) or via the RESTful API endpoint for PhoneNumbers
+7. Verify this component is working by texting an opt-in or opt-out keyword to a phone number in the service. This will appear in the Harper table PhoneNumbers: accessible either in your [Harper Studio UI](https://docs.harperdb.io/docs/administration/harper-studio) or via the RESTful API endpoint for PhoneNumbers
 
 ## Usage
 
 ### Local Development
-[Install Harper](https://docs.harperdb.io/docs/deployments/install-harper#install) or run `npm i -g harperdb`
+[Install Harper](https://docs.harperdb.io/docs/deployments/install-harper#install) or run `npm i -g harper`
 
 git clone this repo & cd to it
 
