@@ -1,7 +1,7 @@
 {
   "name": "twilio-sms",
   "version": "1.0.0",
-  "description": "Harper extension to track and store Twilio SMS opt-outs and opt-ins in a db",
+  "description": "Harper component to track and store Twilio SMS opt-outs and opt-ins in a database",
   "keywords": [
     "harper",
     "twilio",
@@ -25,6 +25,14 @@
   "main": "resources.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "harperdb dev ."
+    "test:integration": "harper-integration-test-run integrationTests/**/*.test.ts",
+    "dev": "harper dev ."
+  },
+  "dependencies": {
+    "harper": "^5.0.28"
+  },
+  "devDependencies": {
+    "@harperfast/integration-testing": "^0.4.0",
+    "typescript": "^6.0.3"
   }
 }
