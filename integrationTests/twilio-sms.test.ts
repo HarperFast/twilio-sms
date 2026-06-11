@@ -52,7 +52,7 @@ void suite('twilio-sms component', (ctx: ContextWithHarper) => {
 
   void test('Harper starts successfully and root is reachable', async () => {
     const res = await authFetch(ctx, '/');
-    ok([200, 400, 404].includes(res.status), `Unexpected status ${res.status}`);
+    ok([200, 404].includes(res.status), `Unexpected status ${res.status}`);
   });
 
   // ── /PhoneNumbers REST table ───────────────────────────────────────────────
@@ -111,7 +111,7 @@ void suite('twilio-sms component', (ctx: ContextWithHarper) => {
     ok([200, 201, 204].includes(res.status), `expected 2xx for opt-out, got HTTP ${res.status}`);
 
     // Verify the record was written to the PhoneNumbers table
-    const record = await authFetch(ctx, `/PhoneNumbers/${encodeURIComponent(from)}`);
+    const record = await authFetch(ctx, `/PhoneNumbers/${from}`);
     strictEqual(record.status, 200, 'PhoneNumbers record should exist after opt-out');
     const body = await record.json() as { status: string };
     strictEqual(body.status, 'out', `expected status "out" after STOP keyword, got "${body.status}"`);
@@ -132,7 +132,7 @@ void suite('twilio-sms component', (ctx: ContextWithHarper) => {
     });
     ok([200, 201, 204].includes(res.status), `expected 2xx for opt-in, got HTTP ${res.status}`);
 
-    const record = await authFetch(ctx, `/PhoneNumbers/${encodeURIComponent(from)}`);
+    const record = await authFetch(ctx, `/PhoneNumbers/${from}`);
     strictEqual(record.status, 200, 'PhoneNumbers record should exist after opt-in');
     const body = await record.json() as { status: string };
     strictEqual(body.status, 'in', `expected status "in" after START keyword, got "${body.status}"`);
@@ -147,7 +147,7 @@ void suite('twilio-sms component', (ctx: ContextWithHarper) => {
     });
     ok([200, 201, 204].includes(res.status), `expected 2xx for CANCEL, got HTTP ${res.status}`);
 
-    const record = await authFetch(ctx, `/PhoneNumbers/${encodeURIComponent(from)}`);
+    const record = await authFetch(ctx, `/PhoneNumbers/${from}`);
     strictEqual(record.status, 200, 'PhoneNumbers record should exist after CANCEL');
     const body = await record.json() as { status: string };
     strictEqual(body.status, 'out', `expected status "out" after CANCEL keyword, got "${body.status}"`);
@@ -162,7 +162,7 @@ void suite('twilio-sms component', (ctx: ContextWithHarper) => {
     });
     ok([200, 201, 204].includes(res.status), `expected 2xx for UNSTOP, got HTTP ${res.status}`);
 
-    const record = await authFetch(ctx, `/PhoneNumbers/${encodeURIComponent(from)}`);
+    const record = await authFetch(ctx, `/PhoneNumbers/${from}`);
     strictEqual(record.status, 200, 'PhoneNumbers record should exist after UNSTOP');
     const body = await record.json() as { status: string };
     strictEqual(body.status, 'in', `expected status "in" after UNSTOP keyword, got "${body.status}"`);

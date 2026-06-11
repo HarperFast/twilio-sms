@@ -3,6 +3,7 @@ const optInKeywords = ["start", "unstop", "yes"];
 
 function updateStatus(data) {
   const { OptOutType, From } = data;
+  if (!OptOutType || !From) return;
   const optOut = OptOutType.toLowerCase();
   if (optOutKeywords.includes(optOut) || optInKeywords.includes(optOut)) {
     const type = optOutKeywords.includes(optOut) ? 'out' : 'in';
