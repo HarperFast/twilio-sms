@@ -1,3 +1,12 @@
+> [!IMPORTANT]
+> **This repository is archived and read-only.**
+>
+> It is an example Harper component and is no longer maintained.
+> It is pinned to **HarperDB v4** and is preserved for reference.
+> It is **not** kept in sync with current releases and may not be supported in latest Harper versions.
+>
+> For up-to-date guides and reference docs, see the [Harper docs](https://docs.harper.fast) and join our [Discord](https://harper.fast/discord).
+
 # Harper + Twilio SMS 
 A [Harper Systems Component](https://docs.harperdb.io/docs/developers/components) for tracking Twilio SMS opt-outs and opt-ins.
 
